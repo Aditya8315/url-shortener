@@ -20,8 +20,8 @@ const LandingPage = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <h2 className="my-10 sm:my-16 text-3xl sm:text-6xl lg:text-7xl text-black text-center font-extrabold dark:text-white">
-        The only URL Shortener <br /> you&rsquo;ll ever need! 👇
+      <h2 className="my-10 sm:my-16 text-3xl sm:text-4xl lg:text-6xl text-black text-center font-extrabold dark:text-white">
+        URL Shortener With Click Statistics 👇
       </h2>
       <form
         onSubmit={handleShorten}
