@@ -1,7 +1,7 @@
-import {Button} from "@/components/ui/button";
-import {Input} from "@/components/ui/input";
-import {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Accordion,
   AccordionContent,
@@ -20,7 +20,7 @@ const LandingPage = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <h2 className="my-10 sm:my-16 text-3xl sm:text-6xl lg:text-7xl text-white text-center font-extrabold">
+      <h2 className="my-10 sm:my-16 text-3xl sm:text-6xl lg:text-7xl text-black text-center font-extrabold dark:text-white">
         The only URL Shortener <br /> you&rsquo;ll ever need! 👇
       </h2>
       <form
@@ -39,13 +39,13 @@ const LandingPage = () => {
         </Button>
       </form>
       <img
-        src="/banner1.jpg" // replace with 2 in small screens
-        className="w-full my-11 md:px-11"
+        src="/banner3.jpg" // replace with 2 in small screens
+        className="w-1/2 my-11 md:px-11"
       />
       <Accordion type="multiple" collapsible className="w-full md:px-11">
         <AccordionItem value="item-1">
           <AccordionTrigger>
-            How does the Trimrr URL shortener works?
+            How does the URL shortener works?
           </AccordionTrigger>
           <AccordionContent>
             When you enter a long URL, our system generates a shorter version of

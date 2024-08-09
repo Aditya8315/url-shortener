@@ -10,12 +10,15 @@ import {logout} from "@/db/apiAuth";
 import useFetch from "@/hooks/use-fetch";
 import {Avatar, AvatarFallback, AvatarImage} from "@radix-ui/react-avatar";
 import {LinkIcon, LogOut} from "lucide-react";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 import {BarLoader} from "react-spinners";
 import {Button} from "./ui/button";
 import {UrlState} from "@/context";
+import { ModeToggle } from "./mode-toggle";
 
 const Header = () => {
+  const location  = useLocation();
+  const isAuthPage = location.pathname === '/auth';
   const {loading, fn: fnLogout} = useFetch(logout);
   const navigate = useNavigate();
 
@@ -25,14 +28,14 @@ const Header = () => {
     <>
       <nav className="py-4 flex justify-between items-center">
         <Link to="/">
-          <img src="/logo.png" className="h-16" alt="Trimrr Logo" />
+          <img src="/logo.png" className="h-16" alt="Logo" />
         </Link>
         <div className="flex gap-4">
           {!user ? (
-            <Button onClick={() => navigate("/auth")}>Login</Button>
+            !isAuthPage && ( <Button onClick={() => navigate("/auth")}>Login</Button>)
           ) : (
             <DropdownMenu>
-              <DropdownMenuTrigger className="w-10 rounded-full overflow-hidden">
+              <DropdownMenuTrigger className="w-10 h-10 rounded-full overflow-hidden">
                 <Avatar>
                   <AvatarImage src={user?.user_metadata?.profile_pic} />
                   <AvatarFallback>PA</AvatarFallback>
@@ -64,6 +67,7 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
           )}
+          <ModeToggle />
         </div>
       </nav>
       {loading && <BarLoader className="mb-4" width={"100%"} color="#36d7b7" />}
